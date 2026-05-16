@@ -746,12 +746,13 @@ function submitForm(){
   errEl.style.display='none';
 
   const params = {
-    to_email: 'trankimkieuthi11@gmail.com',
-    from_name: name,
-    phone: phone,
-    course: course || 'Chưa chọn',
-    note: note || 'Không có',
-    time: new Date().toLocaleString('vi-VN')
+    name: name,
+    message: `
+- Số điện thoại: ${phone}
+- Khóa học chọn: ${course || 'Cần tư vấn'}
+- Ghi chú: ${note || 'Không có'}
+- Thời gian: ${new Date().toLocaleString('vi-VN')}
+    `
   };
 
   emailjs.send('service_zbk9mqe', 'template_5qk2cwk', params)
