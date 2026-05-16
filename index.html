@@ -678,7 +678,7 @@
 <script>
 /* ── EMAILJS INIT ── */
 (function(){
-  emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+  emailjs.init("5O0ZsQ7G6vwYLL6TU");
 })();
 
 /* ── PARTICLES ── */
@@ -746,7 +746,7 @@ function submitForm(){
   errEl.style.display='none';
 
   const params = {
-    to_email: 'GIAOVIEN_EMAIL@gmail.com',
+    to_email: 'trankimkieuthi11@gmail.com',
     from_name: name,
     phone: phone,
     course: course || 'Chưa chọn',
@@ -754,7 +754,7 @@ function submitForm(){
     time: new Date().toLocaleString('vi-VN')
   };
 
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+  emailjs.send('service_zbk9mqe', 'template_5qk2cwk', params)
     .then(()=>{
       document.getElementById('formContent').style.display='none';
       document.getElementById('formSuccess').style.display='block';
