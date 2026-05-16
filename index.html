@@ -70,10 +70,23 @@
   nav.scrolled { box-shadow: 0 2px 24px rgba(192,57,43,0.08); }
   .nav-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 22px; color: var(--rose);
-    display: flex; align-items: center; gap: 8px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
   }
-  .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-logo .logo-sub {
+    font-size: 18px;
+    color: var(--ink-mid);
+    -webkit-text-fill-color: initial;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.8;
+  }
   .nav-links { display: flex; gap: 32px; }
   .nav-links a {
     font-size: 14px; font-weight: 500; color: var(--ink-mid);
@@ -442,7 +455,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo">金珍<span>JinZhen</span></div>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">金珍 <span class="logo-sub">Kim Trân</span></div>
   <div class="nav-links">
     <a href="#courses">Khóa học</a>
     <a href="#benefits">Lợi ích</a>
