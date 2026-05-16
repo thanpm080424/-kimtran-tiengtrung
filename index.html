@@ -1277,7 +1277,11 @@
 
       const params = {
         name: name,
+        phone: phone,
+        course: course || 'Cần tư vấn',
+        note: note || 'Không có',
         message: `
+- Họ tên: ${name}
 - Số điện thoại: ${phone}
 - Khóa học chọn: ${course || 'Cần tư vấn'}
 - Ghi chú: ${note || 'Không có'}
