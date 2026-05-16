@@ -1,790 +1,1316 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jin Zhen — Khóa Học Tiếng Trung</title>
-<meta name="description" content="Khóa học tiếng Trung giao tiếp & phát âm online cùng Jin Zhen. Lớp học nhỏ, sát sao, học liệu miễn phí.">
-<meta property="og:title" content="Jin Zhen — Khóa Học Tiếng Trung Online">
-<meta property="og:description" content="Học Tiếng Trung không còn khó! Phát triển đủ 4 kỹ năng Nghe – Nói – Đọc – Viết cùng Jin Zhen. Đăng ký tư vấn miễn phí ngay.">
-<meta property="og:image" content="https://thanpm080424.github.io/kimtran-tiengtrung/social-preview.jpg">
-<meta property="og:url" content="https://thanpm080424.github.io/kimtran-tiengtrung/">
-<meta property="og:type" content="website">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jin Zhen — Khóa Học Tiếng Trung</title>
+  <meta name="description"
+    content="Khóa học tiếng Trung giao tiếp & phát âm online cùng Jin Zhen. Lớp học nhỏ, sát sao, học liệu miễn phí.">
+  <meta property="og:title" content="Jin Zhen — Khóa Học Tiếng Trung Online">
+  <meta property="og:description"
+    content="Học Tiếng Trung không còn khó! Phát triển đủ 4 kỹ năng Nghe – Nói – Đọc – Viết cùng Jin Zhen. Đăng ký tư vấn miễn phí ngay.">
+  <meta property="og:image" content="https://thanpm080424.github.io/kimtran-tiengtrung/social-preview.jpg">
+  <meta property="og:url" content="https://thanpm080424.github.io/kimtran-tiengtrung/">
+  <meta property="og:type" content="website">
 
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,500&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --rose: #E8526A;
-    --rose-light: #FDEEF1;
-    --rose-mid: #F4A0B0;
-    --gold: #D4A843;
-    --gold-light: #FDF5E4;
-    --ink: #1A1018;
-    --ink-mid: #5C4A57;
-    --ink-soft: #9B8797;
-    --cream: #FDF8F5;
-    --white: #FFFFFF;
-    --red-cn: #C0392B;
-  }
+    :root {
+      --rose: #E8526A;
+      --rose-light: #FDEEF1;
+      --rose-mid: #F4A0B0;
+      --gold: #D4A843;
+      --gold-light: #FDF5E4;
+      --ink: #1A1018;
+      --ink-mid: #5C4A57;
+      --ink-soft: #9B8797;
+      --cream: #FDF8F5;
+      --white: #FFFFFF;
+      --red-cn: #C0392B;
+    }
 
-  html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    overflow-x: hidden;
-  }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
 
-  /* ── FLOATING PARTICLES ── */
-  #particles {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-  }
-  .particle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.18;
-    animation: floatP linear infinite;
-  }
+    /* ── FLOATING PARTICLES ── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
 
-  @keyframes floatP {
-    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10%  { opacity: 0.18; }
-    90%  { opacity: 0.18; }
-    100% { transform: translateY(-120px) rotate(720deg); opacity: 0; }
-  }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      animation: floatP linear infinite;
+    }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(253,248,245,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(232,82,106,0.12);
-    transition: box-shadow 0.3s;
-  }
-  nav.scrolled { box-shadow: 0 2px 24px rgba(192,57,43,0.08); }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: flex; align-items: center; gap: 10px;
-    cursor: pointer;
-  }
-  .nav-logo .logo-sub {
-    font-size: 18px;
-    color: var(--ink-mid);
-    -webkit-text-fill-color: initial;
-    font-weight: 400;
-    font-style: italic;
-    opacity: 0.8;
-  }
-  .nav-links { display: flex; gap: 32px; }
-  .nav-links a {
-    font-size: 14px; font-weight: 500; color: var(--ink-mid);
-    text-decoration: none; transition: color 0.2s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px;
-    background: var(--rose); transition: width 0.3s;
-  }
-  .nav-links a:hover { color: var(--rose); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    background: var(--rose); color: #fff; border: none; border-radius: 50px;
-    padding: 10px 24px; font-size: 14px; font-weight: 600; cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-family: 'Be Vietnam Pro', sans-serif;
-  }
-  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,82,106,0.35); }
+    @keyframes floatP {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    padding: 120px 40px 80px;
-    position: relative;
-  }
+      10% {
+        opacity: 0.18;
+      }
 
-  .hero-inner {
-    max-width: 900px; width: 100%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-  }
+      90% {
+        opacity: 0.18;
+      }
 
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--rose-light); color: var(--rose);
-    border: 1px solid var(--rose-mid); border-radius: 50px;
-    padding: 6px 16px; font-size: 13px; font-weight: 600;
-    margin-bottom: 20px;
-    animation: fadeInUp 0.8s ease both;
-  }
-  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); animation: pulse 1.8s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.4); opacity:0.6; } }
+      100% {
+        transform: translateY(-120px) rotate(720deg);
+        opacity: 0;
+      }
+    }
 
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 52px);
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 16px;
-    animation: fadeInUp 0.8s 0.1s ease both;
-  }
-  .hero-title em { color: var(--rose); font-style: italic; }
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(253, 248, 245, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232, 82, 106, 0.12);
+      transition: box-shadow 0.3s;
+    }
 
-  .hero-sub {
-    font-size: 16px; color: var(--ink-mid); line-height: 1.75;
-    margin-bottom: 32px;
-    animation: fadeInUp 0.8s 0.2s ease both;
-  }
+    nav.scrolled {
+      box-shadow: 0 2px 24px rgba(192, 57, 43, 0.08);
+    }
 
-  .hero-btns {
-    display: flex; gap: 16px; flex-wrap: wrap;
-    animation: fadeInUp 0.8s 0.3s ease both;
-  }
-  .btn-primary {
-    background: var(--rose); color: #fff;
-    border: none; border-radius: 50px;
-    padding: 14px 32px; font-size: 15px; font-weight: 600;
-    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(232,82,106,0.38); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
 
-  .btn-outline {
-    background: transparent; color: var(--rose);
-    border: 1.5px solid var(--rose); border-radius: 50px;
-    padding: 14px 32px; font-size: 15px; font-weight: 600;
-    cursor: pointer; transition: all 0.2s;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    text-decoration: none; display: inline-block;
-  }
-  .btn-outline:hover { background: var(--rose-light); }
+    .nav-logo .logo-sub {
+      font-size: 18px;
+      color: var(--ink-mid);
+      -webkit-text-fill-color: initial;
+      font-weight: 400;
+      font-style: italic;
+      opacity: 0.8;
+    }
 
-  /* hero card 3D */
-  .hero-card-wrap {
-    animation: fadeInRight 0.9s 0.15s ease both;
-    perspective: 900px;
-  }
-  .hero-card {
-    background: var(--white);
-    border-radius: 24px;
-    padding: 32px;
-    border: 1px solid rgba(232,82,106,0.15);
-    box-shadow: 0 24px 60px rgba(192,57,43,0.12), 0 4px 16px rgba(0,0,0,0.06);
-    transform-style: preserve-3d;
-    transition: transform 0.4s ease;
-    position: relative; overflow: hidden;
-  }
-  .hero-card::before {
-    content: '学';
-    position: absolute; right: -10px; top: -20px;
-    font-size: 120px; color: rgba(232,82,106,0.06);
-    font-weight: 700; line-height: 1;
-    pointer-events: none;
-  }
-  .card-avatar {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--rose-light), var(--rose-mid));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px; font-weight: 700; color: var(--rose);
-    margin-bottom: 16px;
-    border: 3px solid white;
-    box-shadow: 0 4px 16px rgba(232,82,106,0.2);
-  }
-  .card-name { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-  .card-sub { font-size: 13px; color: var(--ink-soft); margin-bottom: 20px; }
-  .card-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;
-  }
-  .stat-box {
-    background: var(--cream); border-radius: 12px; padding: 12px 16px;
-    text-align: center;
-  }
-  .stat-val { font-size: 20px; font-weight: 700; color: var(--rose); }
-  .stat-label { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
-  .card-skills {
-    display: flex; gap: 8px; flex-wrap: wrap;
-  }
-  .skill-tag {
-    background: var(--rose-light); color: var(--rose);
-    border-radius: 50px; padding: 4px 12px; font-size: 12px; font-weight: 600;
-    border: 1px solid rgba(232,82,106,0.2);
-  }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
 
-  /* ── SECTION COMMONS ── */
-  section { position: relative; z-index: 1; }
-  .section-label {
-    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--rose); margin-bottom: 12px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 42px);
-    line-height: 1.2; color: var(--ink); margin-bottom: 16px;
-  }
-  .section-title em { color: var(--rose); font-style: italic; }
-  .section-desc { font-size: 16px; color: var(--ink-mid); line-height: 1.75; max-width: 560px; }
-  .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
 
-  /* ── COURSES ── */
-  #courses { padding: 100px 40px; }
-  .courses-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px;
-  }
-  .course-card {
-    background: var(--white); border-radius: 20px; padding: 32px;
-    border: 1px solid rgba(232,82,106,0.12);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative; overflow: hidden;
-  }
-  .course-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(192,57,43,0.13); }
-  .course-card.featured { border-color: var(--rose); border-width: 2px; }
-  .featured-badge {
-    position: absolute; top: 20px; right: 20px;
-    background: var(--rose); color: #fff;
-    font-size: 11px; font-weight: 700; padding: 4px 12px;
-    border-radius: 50px; letter-spacing: 0.5px;
-  }
-  .course-icon {
-    width: 52px; height: 52px; border-radius: 14px;
-    background: var(--rose-light); display: flex; align-items: center; justify-content: center;
-    font-size: 22px; margin-bottom: 20px;
-  }
-  .course-name { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-  .course-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 20px; line-height: 1.6; }
-  .course-features { list-style: none; }
-  .course-features li {
-    font-size: 14px; color: var(--ink-mid); padding: 6px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .course-features li::before { content: '✦'; color: var(--rose); font-size: 11px; flex-shrink: 0; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--rose);
+      transition: width 0.3s;
+    }
 
-  /* ── BENEFITS ── */
-  #benefits {
-    padding: 100px 40px;
-    background: var(--ink);
-    position: relative; overflow: hidden;
-  }
-  #benefits::before {
-    content: '中文'; position: absolute; right: -40px; bottom: -60px;
-    font-size: 260px; font-weight: 900; color: rgba(255,255,255,0.03);
-    line-height: 1; pointer-events: none;
-  }
-  #benefits .section-title { color: var(--white); }
-  #benefits .section-desc { color: rgba(255,255,255,0.55); }
-  #benefits .section-label { color: var(--rose-mid); }
+    .nav-links a:hover {
+      color: var(--rose);
+    }
 
-  .benefits-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px;
-  }
-  .benefit-box {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px; padding: 24px 20px;
-    transition: background 0.3s, transform 0.3s;
-  }
-  .benefit-box:hover { background: rgba(232,82,106,0.15); transform: translateY(-4px); }
-  .benefit-num {
-    font-size: 13px; font-weight: 700; color: var(--rose-mid);
-    margin-bottom: 12px; letter-spacing: 1px;
-  }
-  .benefit-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.4; }
-  .benefit-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-  /* ── TESTIMONIALS ── */
-  #reviews { padding: 100px 40px; }
-  .reviews-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
-  }
-  .review-card {
-    background: var(--white); border-radius: 16px; padding: 24px;
-    border: 1px solid rgba(232,82,106,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-  }
-  .review-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(192,57,43,0.1); }
-  .review-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; }
-  .review-text {
-    font-size: 14px; color: var(--ink-mid); line-height: 1.75;
-    font-style: italic; margin-bottom: 20px;
-  }
-  .review-author { font-size: 13px; font-weight: 600; color: var(--ink); }
-  .review-course { font-size: 12px; color: var(--ink-soft); }
-  .quote-mark {
-    position: absolute; top: 16px; right: 20px;
-    font-size: 64px; color: rgba(232,82,106,0.08);
-    font-family: 'Playfair Display', serif; line-height: 1;
-  }
+    .nav-cta {
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
 
-  /* ── REGISTER FORM ── */
-  #register { padding: 100px 40px; }
-  .form-wrap {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
-    max-width: 860px; margin: 0 auto;
-  }
-  .form-info { padding-top: 8px; }
-  .form-info .section-title { margin-bottom: 20px; }
-  .contact-item {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 16px;
-  }
-  .contact-icon {
-    width: 40px; height: 40px; border-radius: 12px;
-    background: var(--rose-light); display: flex; align-items: center; justify-content: center;
-    font-size: 18px; flex-shrink: 0;
-  }
-  .contact-label { font-size: 12px; color: var(--ink-soft); }
-  .contact-val { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232, 82, 106, 0.35);
+    }
 
-  .form-box {
-    background: var(--white); border-radius: 24px; padding: 36px;
-    border: 1px solid rgba(232,82,106,0.15);
-    box-shadow: 0 12px 40px rgba(192,57,43,0.08);
-  }
-  .form-title { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 24px; }
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 40px 80px;
+      position: relative;
+    }
 
-  .form-group { margin-bottom: 18px; }
-  .form-group label {
-    display: block; font-size: 13px; font-weight: 600; color: var(--ink-mid);
-    margin-bottom: 8px;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1.5px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    font-size: 14px; font-family: 'Be Vietnam Pro', sans-serif;
-    color: var(--ink); background: var(--cream);
-    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--rose);
-    box-shadow: 0 0 0 3px rgba(232,82,106,0.12);
-    background: var(--white);
-  }
-  .form-group textarea { resize: vertical; min-height: 90px; }
+    .hero-inner {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
 
-  .submit-btn {
-    width: 100%; padding: 15px;
-    background: var(--rose); color: #fff;
-    border: none; border-radius: 12px;
-    font-size: 15px; font-weight: 700;
-    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    letter-spacing: 0.3px;
-  }
-  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,82,106,0.35); }
-  .submit-btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--rose-light);
+      color: var(--rose);
+      border: 1px solid var(--rose-mid);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease both;
+    }
 
-  .form-success {
-    display: none; text-align: center; padding: 32px 16px;
-  }
-  .form-success .checkmark {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: #E8F8EF; display: flex; align-items: center; justify-content: center;
-    font-size: 28px; margin: 0 auto 16px;
-    animation: popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
-  }
-  @keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
-  .form-success h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-  .form-success p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--rose);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink); color: rgba(255,255,255,0.55);
-    text-align: center; padding: 40px;
-    font-size: 14px; line-height: 2;
-  }
-  footer strong { color: var(--rose-mid); }
-  footer a { color: var(--rose-mid); text-decoration: none; }
+    @keyframes pulse {
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(32px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
 
-  .reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+      50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+      }
+    }
 
-  /* chinese deco line */
-  .deco-line {
-    width: 48px; height: 3px; background: var(--rose);
-    border-radius: 2px; margin: 16px 0 32px;
-  }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 16px;
+      animation: fadeInUp 0.8s 0.1s ease both;
+    }
 
-  /* responsive */
-  @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-card-wrap { display: none; }
-    .courses-grid, .form-wrap, .reviews-grid { grid-template-columns: 1fr; }
-    .benefits-grid { grid-template-columns: 1fr 1fr; }
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    #hero, #courses, #benefits, #reviews, #register { padding-left: 20px; padding-right: 20px; }
-  }
-</style>
+    .hero-title em {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.8s 0.2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(232, 82, 106, 0.38);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--rose);
+      border: 1.5px solid var(--rose);
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--rose-light);
+    }
+
+    /* hero card 3D */
+    .hero-card-wrap {
+      animation: fadeInRight 0.9s 0.15s ease both;
+      perspective: 900px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid rgba(232, 82, 106, 0.15);
+      box-shadow: 0 24px 60px rgba(192, 57, 43, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '学';
+      position: absolute;
+      right: -10px;
+      top: -20px;
+      font-size: 120px;
+      color: rgba(232, 82, 106, 0.06);
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .card-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-light), var(--rose-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--rose);
+      margin-bottom: 16px;
+      border: 3px solid white;
+      box-shadow: 0 4px 16px rgba(232, 82, 106, 0.2);
+    }
+
+    .card-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .card-sub {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+
+    .card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stat-box {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--rose);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+
+    .card-skills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .skill-tag {
+      background: var(--rose-light);
+      color: var(--rose);
+      border-radius: 50px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(232, 82, 106, 0.2);
+    }
+
+    /* ── SECTION COMMONS ── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .section-title em {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── COURSES ── */
+    #courses {
+      padding: 100px 40px;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .course-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px;
+      border: 1px solid rgba(232, 82, 106, 0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(192, 57, 43, 0.13);
+    }
+
+    .course-card.featured {
+      border-color: var(--rose);
+      border-width: 2px;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--rose);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    .course-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--rose-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .course-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .course-sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .course-features {
+      list-style: none;
+    }
+
+    .course-features li {
+      font-size: 14px;
+      color: var(--ink-mid);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .course-features li::before {
+      content: '✦';
+      color: var(--rose);
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ── BENEFITS ── */
+    #benefits {
+      padding: 100px 40px;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #benefits::before {
+      content: '中文';
+      position: absolute;
+      right: -40px;
+      bottom: -60px;
+      font-size: 260px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.03);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    #benefits .section-title {
+      color: var(--white);
+    }
+
+    #benefits .section-desc {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    #benefits .section-label {
+      color: var(--rose-mid);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .benefit-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px 20px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .benefit-box:hover {
+      background: rgba(232, 82, 106, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .benefit-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--rose-mid);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .benefit-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .benefit-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #reviews {
+      padding: 100px 40px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(232, 82, 106, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(192, 57, 43, 0.1);
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .review-author {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .review-course {
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 64px;
+      color: rgba(232, 82, 106, 0.08);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+
+    /* ── REGISTER FORM ── */
+    #register {
+      padding: 100px 40px;
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .form-info {
+      padding-top: 8px;
+    }
+
+    .form-info .section-title {
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--rose-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .contact-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .form-box {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px;
+      border: 1px solid rgba(232, 82, 106, 0.15);
+      box-shadow: 0 12px 40px rgba(192, 57, 43, 0.08);
+    }
+
+    .form-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-mid);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(232, 82, 106, 0.12);
+      background: var(--white);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0.3px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(232, 82, 106, 0.35);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 16px;
+    }
+
+    .form-success .checkmark {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #E8F8EF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .form-success h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    footer strong {
+      color: var(--rose-mid);
+    }
+
+    footer a {
+      color: var(--rose-mid);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(32px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* chinese deco line */
+    .deco-line {
+      width: 48px;
+      height: 3px;
+      background: var(--rose);
+      border-radius: 2px;
+      margin: 16px 0 32px;
+    }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card-wrap {
+        display: none;
+      }
+
+      .courses-grid,
+      .form-wrap,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        padding: 14px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      #hero,
+      #courses,
+      #benefits,
+      #reviews,
+      #register {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- PARTICLES -->
-<div id="particles"></div>
+  <!-- PARTICLES -->
+  <div id="particles"></div>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">金珍 <span class="logo-sub">Kim Trân</span></div>
-  <div class="nav-links">
-    <a href="#courses">Khóa học</a>
-    <a href="#benefits">Lợi ích</a>
-    <a href="#reviews">Học viên</a>
-    <a href="#register">Đăng ký</a>
-  </div>
-  <button class="nav-cta" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Đăng ký ngay</button>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge"><span class="badge-dot"></span> Lớp online — Khai giảng liên tục</div>
-      <h1 class="hero-title">Học Tiếng Trung<br>Không Còn <em>Khó</em></h1>
-        <p class="hero-sub">Cùng Jin Zhen phát triển đủ 4 kỹ năng Nghe – Nói – Đọc – Viết. Lớp học nhỏ, sát sao, có record buổi học gửi lại cho bạn.</p>
-      <div class="hero-btns">
-        <a href="#register" class="btn-primary">Đăng ký tư vấn miễn phí →</a>
-        <a href="#courses" class="btn-outline">Xem khóa học</a>
-      </div>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">金珍 <span class="logo-sub">Kim Trân</span>
     </div>
+    <div class="nav-links">
+      <a href="#courses">Khóa học</a>
+      <a href="#benefits">Lợi ích</a>
+      <a href="#reviews">Học viên</a>
+      <a href="#register">Đăng ký</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Đăng ký
+      ngay</button>
+  </nav>
 
-    <div class="hero-card-wrap" id="heroCardWrap">
-      <div class="hero-card" id="heroCard">
-        <div class="card-avatar">金珍</div>
-        <div class="card-name">Kiều Thị Kim Trân</div>
-        <div class="card-sub">Giáo viên — Jin Zhen Chinese Class</div>
-        <div class="card-stats">
-          <div class="stat-box">
-            <div class="stat-val">268<small style="font-size:13px">/300</small></div>
-            <div class="stat-label">Điểm HSK 3</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val">3.5<small style="font-size:13px">/4.0</small></div>
-            <div class="stat-label">GPA ĐH Sư phạm</div>
-          </div>
-        </div>
-        <div class="card-skills">
-          <span class="skill-tag">Nghe</span>
-          <span class="skill-tag">Nói</span>
-          <span class="skill-tag">Đọc</span>
-          <span class="skill-tag">Viết</span>
-          <span class="skill-tag">Phát âm</span>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span class="badge-dot"></span> Lớp online — Khai giảng liên tục</div>
+        <h1 class="hero-title">Học Tiếng Trung<br>Không Còn <em>Khó</em></h1>
+        <p class="hero-sub">Cùng Jin Zhen phát triển đủ 4 kỹ năng Nghe – Nói – Đọc – Viết. Lớp học nhỏ, sát sao, có
+          record buổi học gửi lại cho bạn.</p>
+        <div class="hero-btns">
+          <a href="#register" class="btn-primary">Đăng ký tư vấn miễn phí →</a>
+          <a href="#courses" class="btn-outline">Xem khóa học</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- COURSES -->
-<section id="courses">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">Chương trình học</p>
-      <h2 class="section-title">Hai khóa học<br>dành cho bạn</h2>
-      <div class="deco-line"></div>
-    </div>
-    <div class="courses-grid">
-      <div class="course-card featured reveal">
-        <div class="featured-badge">PHỔ BIẾN</div>
-        <div class="course-icon">🗣️</div>
-        <div class="course-name">Lớp HSK sơ cấp</div>
-        <div class="course-sub">HSK 1–3 · Từ căn bản đến giao tiếp tự nhiên</div>
-        <ul class="course-features">
-          <li>Phù hợp người mới hoàn toàn</li>
-          <li>Phát triển đủ 4 kỹ năng NGHE NÓI ĐỌC VIẾT</li>
-          <li>Bài test đầu vào (HSK 2, HSK 3)</li>
-          <li>Bài học được record và gửi sau buổi học</li>
-          <li>Tài liệu giáo trình miễn phí</li>
-          <li>Theo dõi chi tiết trong quá trình học</li>
-        </ul>
-      </div>
-      <div class="course-card reveal">
-        <div class="course-icon">🔊</div>
-        <div class="course-name">Khóa Phát Âm tiếng Trung</div>
-        <div class="course-sub">Thanh mẫu · Vận mẫu · Thanh điệu · Biến điệu</div>
-        <ul class="course-features">
-          <li>Luyện từ nền tảng phát âm chuẩn</li>
-          <li>Biến đổi thanh điệu & đọc đoạn dài</li>
-          <li>BTVN ghi âm sau mỗi buổi học</li>
-          <li>Thời lượng 1h – 1h30 mỗi buổi</li>
-          <li>Học viên có nền sẽ nâng cao hơn</li>
-          <li>Sửa phát âm từng chữ chi tiết</li>
-        </ul>
+      <div class="hero-card-wrap" id="heroCardWrap">
+        <div class="hero-card" id="heroCard">
+          <div class="card-avatar">金珍</div>
+          <div class="card-name">Kiều Thị Kim Trân</div>
+          <div class="card-sub">Giáo viên — Jin Zhen Chinese Class</div>
+          <div class="card-stats">
+            <div class="stat-box">
+              <div class="stat-val">268<small style="font-size:13px">/300</small></div>
+              <div class="stat-label">Điểm HSK 3</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val">3.5<small style="font-size:13px">/4.0</small></div>
+              <div class="stat-label">GPA ĐH Sư phạm</div>
+            </div>
+          </div>
+          <div class="card-skills">
+            <span class="skill-tag">Nghe</span>
+            <span class="skill-tag">Nói</span>
+            <span class="skill-tag">Đọc</span>
+            <span class="skill-tag">Viết</span>
+            <span class="skill-tag">Phát âm</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- BENEFITS -->
-<section id="benefits">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">Vì sao chọn Jin Zhen</p>
-      <h2 class="section-title" style="color:#fff">Học sinh nhận được<br><em>những điều này</em></h2>
-      <div class="deco-line"></div>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit-box reveal">
-        <div class="benefit-num">01</div>
-        <div class="benefit-title">Tài liệu miễn phí</div>
-        <div class="benefit-desc">Giáo trình & file học liên quan được cung cấp hoàn toàn miễn phí trong suốt quá trình học.</div>
-      </div>
-      <div class="benefit-box reveal">
-        <div class="benefit-num">02</div>
-        <div class="benefit-title">Record buổi học</div>
-        <div class="benefit-desc">Mỗi buổi học được ghi lại và gửi cho học viên để ôn lại bất cứ lúc nào.</div>
-      </div>
-      <div class="benefit-box reveal">
-        <div class="benefit-num">03</div>
-        <div class="benefit-title">Theo dõi sát sao</div>
-        <div class="benefit-desc">Cô giáo theo dõi tiến độ từng học viên và sửa lỗi phát âm chi tiết theo từng chữ.</div>
-      </div>
-      <div class="benefit-box reveal">
-        <div class="benefit-num">04</div>
-        <div class="benefit-title">Hỗ trợ ngoài giờ</div>
-        <div class="benefit-desc">Giải đáp thắc mắc, hỏi bài ngoài giờ học qua Zalo nhanh chóng và tận tình.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">Cảm nhận học viên</p>
-      <h2 class="section-title">Họ nói gì về<br>lớp của <em>Jin Zhen</em></h2>
-      <div class="deco-line"></div>
-    </div>
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <div class="quote-mark">"</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Nói chung 100đ không chờ em quay lại nữa! Mình dạy dễ hiểu, nhiệt tình và hay có tips nhớ bài siêu hay.</p>
-        <div class="review-author">Học viên A</div>
-        <div class="review-course">Khóa Giao tiếp HSK</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="quote-mark">"</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Mỗi buổi học là một buổi vui. Mình dạy siêu tận tâm, sửa lỗi phát âm chi tiết cho từng chữ. Nhờ mình mà bạn đã biết cách đặt lưỡi đúng chuẩn.</p>
-        <div class="review-author">Học viên B</div>
-        <div class="review-course">Khóa Phát âm</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="quote-mark">"</div>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">Mình thấy khóa học đầy đủ kiến thức, Jin Zhen dạy chi tiết, nhiệt tình. Bạn không cần bổ sung gì cả — người cần bổ sung kiến thức là mình thôi!</p>
-        <div class="review-author">Học viên C</div>
-        <div class="review-course">Khóa Giao tiếp HSK</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REGISTER -->
-<section id="register">
-  <div class="container">
-    <div class="form-wrap">
-      <div class="form-info reveal">
-        <p class="section-label">Đăng ký tư vấn</p>
-        <h2 class="section-title">Để lại thông tin —<br>Mình sẽ <em>liên hệ ngay!</em></h2>
+  <!-- COURSES -->
+  <section id="courses">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Chương trình học</p>
+        <h2 class="section-title">Hai khóa học<br>dành cho bạn</h2>
         <div class="deco-line"></div>
-        <p class="section-desc" style="margin-bottom:32px">Chỉ cần họ tên và số điện thoại, Jin Zhen sẽ liên hệ tư vấn khóa học phù hợp nhất cho bạn — hoàn toàn miễn phí.</p>
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div>
-            <div class="contact-label">Zalo / SĐT</div>
-            <div class="contact-val">0329 655 620</div>
-          </div>
+      </div>
+      <div class="courses-grid">
+        <div class="course-card featured reveal">
+          <div class="featured-badge">PHỔ BIẾN</div>
+          <div class="course-icon">🗣️</div>
+          <div class="course-name">Lớp HSK sơ cấp</div>
+          <div class="course-sub">HSK 1–3 · Từ căn bản đến giao tiếp tự nhiên</div>
+          <ul class="course-features">
+            <li>Phù hợp người mới hoàn toàn</li>
+            <li>Phát triển đủ 4 kỹ năng NGHE NÓI ĐỌC VIẾT</li>
+            <li>Bài test đầu vào (HSK 2, HSK 3)</li>
+            <li>Bài học được record và gửi sau buổi học</li>
+            <li>Tài liệu giáo trình miễn phí</li>
+            <li>Theo dõi chi tiết trong quá trình học</li>
+          </ul>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">🎵</div>
-          <div>
-            <div class="contact-label">TikTok</div>
-            <div class="contact-val">@jinzhen.n</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">🎓</div>
-          <div>
-            <div class="contact-label">Trường</div>
-            <div class="contact-val">ĐH Sư phạm TP.HCM</div>
-          </div>
+        <div class="course-card reveal">
+          <div class="course-icon">🔊</div>
+          <div class="course-name">Khóa Phát Âm tiếng Trung</div>
+          <div class="course-sub">Thanh mẫu · Vận mẫu · Thanh điệu · Biến điệu</div>
+          <ul class="course-features">
+            <li>Luyện từ nền tảng phát âm chuẩn</li>
+            <li>Biến đổi thanh điệu & đọc đoạn dài</li>
+            <li>BTVN ghi âm sau mỗi buổi học</li>
+            <li>Thời lượng 1h – 1h30 mỗi buổi</li>
+            <li>Học viên có nền sẽ nâng cao hơn</li>
+            <li>Sửa phát âm từng chữ chi tiết</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="form-box reveal">
-        <div id="formContent">
-          <div class="form-title">✍️ Điền thông tin đăng ký</div>
-          <div class="form-group">
-            <label>Họ và tên *</label>
-            <input type="text" id="fname" placeholder="Nguyễn Văn A" required>
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Vì sao chọn Jin Zhen</p>
+        <h2 class="section-title" style="color:#fff">Học sinh nhận được<br><em>những điều này</em></h2>
+        <div class="deco-line"></div>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-box reveal">
+          <div class="benefit-num">01</div>
+          <div class="benefit-title">Tài liệu miễn phí</div>
+          <div class="benefit-desc">Giáo trình & file học liên quan được cung cấp hoàn toàn miễn phí trong suốt quá
+            trình học.</div>
+        </div>
+        <div class="benefit-box reveal">
+          <div class="benefit-num">02</div>
+          <div class="benefit-title">Record buổi học</div>
+          <div class="benefit-desc">Mỗi buổi học được ghi lại và gửi cho học viên để ôn lại bất cứ lúc nào.</div>
+        </div>
+        <div class="benefit-box reveal">
+          <div class="benefit-num">03</div>
+          <div class="benefit-title">Theo dõi sát sao</div>
+          <div class="benefit-desc">Cô giáo theo dõi tiến độ từng học viên và sửa lỗi phát âm chi tiết theo từng chữ.
           </div>
-          <div class="form-group">
+        </div>
+        <div class="benefit-box reveal">
+          <div class="benefit-num">04</div>
+          <div class="benefit-title">Hỗ trợ ngoài giờ</div>
+          <div class="benefit-desc">Giải đáp thắc mắc, hỏi bài ngoài giờ học qua Zalo nhanh chóng và tận tình.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Cảm nhận học viên</p>
+        <h2 class="section-title">Họ nói gì về<br>lớp của <em>Jin Zhen</em></h2>
+        <div class="deco-line"></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="quote-mark">"</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Nói chung 100đ không chờ em quay lại nữa! Mình dạy dễ hiểu, nhiệt tình và hay có tips
+            nhớ bài siêu hay.</p>
+          <div class="review-author">Học viên A</div>
+          <div class="review-course">Khóa Giao tiếp HSK</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="quote-mark">"</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Mỗi buổi học là một buổi vui. Mình dạy siêu tận tâm, sửa lỗi phát âm chi tiết cho từng
+            chữ. Nhờ mình mà bạn đã biết cách đặt lưỡi đúng chuẩn.</p>
+          <div class="review-author">Học viên B</div>
+          <div class="review-course">Khóa Phát âm</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="quote-mark">"</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Mình thấy khóa học đầy đủ kiến thức, Jin Zhen dạy chi tiết, nhiệt tình. Bạn không cần
+            bổ sung gì cả — người cần bổ sung kiến thức là mình thôi!</p>
+          <div class="review-author">Học viên C</div>
+          <div class="review-course">Khóa Giao tiếp HSK</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="register">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="form-info reveal">
+          <p class="section-label">Đăng ký tư vấn</p>
+          <h2 class="section-title">Để lại thông tin —<br>Mình sẽ <em>liên hệ ngay!</em></h2>
+          <div class="deco-line"></div>
+          <p class="section-desc" style="margin-bottom:32px">Chỉ cần họ tên và số điện thoại, Jin Zhen sẽ liên hệ tư vấn
+            khóa học phù hợp nhất cho bạn — hoàn toàn miễn phí.</p>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-label">Zalo / SĐT</div>
+              <div class="contact-val">0329 655 620</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎵</div>
+            <div>
+              <div class="contact-label">TikTok</div>
+              <div class="contact-val">@jinzhen.n</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎓</div>
+            <div>
+              <div class="contact-label">Trường</div>
+              <div class="contact-val">ĐH Sư phạm TP.HCM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box reveal">
+          <div id="formContent">
+            <div class="form-title">✍️ Điền thông tin đăng ký</div>
+            <div class="form-group">
+              <label>Họ và tên *</label>
+              <input type="text" id="fname" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
             <label>Số điện thoại / Zalo *</label>
             <input type="tel" id="fphone" placeholder="0901 234 567" required>
           </div>
           <div class="form-group">
-            <label>Bạn muốn học khóa nào?</label>
-            <select id="fcourse">
-              <option value="">-- Chọn khóa học --</option>
-              <option value="Lớp HSK sơ cấp">Lớp HSK sơ cấp</option>
-              <option value="Khóa Phát Âm tiếng Trung">Khóa Phát Âm tiếng Trung</option>
-              <option value="Chưa biết, cần tư vấn">Chưa biết, cần tư vấn thêm</option>
-            </select>
+            <label>Địa chỉ Email (để nhận thư chào mừng) *</label>
+            <input type="email" id="femail" placeholder="example@gmail.com" required>
           </div>
-          <div class="form-group">
-            <label>Ghi chú thêm (không bắt buộc)</label>
-            <textarea id="fnote" placeholder="Ví dụ: Bạn hoàn toàn mới, muốn học buổi tối..."></textarea>
+            <div class="form-group">
+              <label>Bạn muốn học khóa nào?</label>
+              <select id="fcourse">
+                <option value="">-- Chọn khóa học --</option>
+                <option value="Lớp HSK sơ cấp">Lớp HSK sơ cấp</option>
+                <option value="Khóa Phát Âm tiếng Trung">Khóa Phát Âm tiếng Trung</option>
+                <option value="Chưa biết, cần tư vấn">Chưa biết, cần tư vấn thêm</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ghi chú thêm (không bắt buộc)</label>
+              <textarea id="fnote" placeholder="Ví dụ: Bạn hoàn toàn mới, muốn học buổi tối..."></textarea>
+            </div>
+            <button class="submit-btn" id="submitBtn" onclick="submitForm()">Gửi Đăng Ký 🚀</button>
+            <p id="formError" style="color:#C0392B;font-size:13px;margin-top:10px;display:none;text-align:center;"></p>
           </div>
-          <button class="submit-btn" id="submitBtn" onclick="submitForm()">Gửi Đăng Ký 🚀</button>
-          <p id="formError" style="color:#C0392B;font-size:13px;margin-top:10px;display:none;text-align:center;"></p>
-        </div>
-        <div class="form-success" id="formSuccess">
-          <div class="checkmark">✅</div>
-          <h3>Đăng ký thành công!</h3>
-          <p>Jin Zhen đã nhận được thông tin của bạn.<br>Mình sẽ liên hệ qua Zalo trong thời gian sớm nhất nhé! 🐼</p>
+          <div class="form-success" id="formSuccess">
+            <div class="checkmark">✅</div>
+            <h3>Đăng ký thành công!</h3>
+            <p>Jin Zhen đã nhận được thông tin của bạn.<br>Mình sẽ liên hệ qua Zalo trong thời gian sớm nhất nhé! 🐼</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p><strong>金珍 — Jin Zhen</strong> — Khóa học Tiếng Trung Online</p>
-  <p>Giảng viên: Kiều Thị Kim Trân &nbsp;·&nbsp; Zalo: <a href="tel:0329655620">0329 655 620</a> &nbsp;·&nbsp; TikTok: <a href="#">@jinzhen.n</a></p>
-  <p style="margin-top:12px;font-size:12px;opacity:0.4">© 2025 Jin Zhen · Tiếng Trung chẳng khó tí nào 🈶</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>金珍 — Jin Zhen</strong> — Khóa học Tiếng Trung Online</p>
+    <p>Giảng viên: Kiều Thị Kim Trân &nbsp;·&nbsp; Zalo: <a href="tel:0329655620">0329 655 620</a> &nbsp;·&nbsp; TikTok:
+      <a href="#">@jinzhen.n</a></p>
+    <p style="margin-top:12px;font-size:12px;opacity:0.4">© 2025 Jin Zhen · Tiếng Trung chẳng khó tí nào 🈶</p>
+  </footer>
 
-<script>
-/* ── EMAILJS INIT ── */
-(function(){
-  emailjs.init("5O0ZsQ7G6vwYLL6TU");
-})();
+  <script>
+    /* ── EMAILJS INIT ── */
+    (function () {
+      emailjs.init("5O0ZsQ7G6vwYLL6TU");
+    })();
 
-/* ── PARTICLES ── */
-const container = document.getElementById('particles');
-const colors = ['#E8526A','#F4A0B0','#D4A843','#FDEEF1'];
-for(let i=0;i<22;i++){
-  const p = document.createElement('div');
-  p.className='particle';
-  const size = Math.random()*10+5;
-  p.style.cssText=`
+    /* ── PARTICLES ── */
+    const container = document.getElementById('particles');
+    const colors = ['#E8526A', '#F4A0B0', '#D4A843', '#FDEEF1'];
+    for (let i = 0; i < 22; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 10 + 5;
+      p.style.cssText = `
     width:${size}px;height:${size}px;
-    left:${Math.random()*100}%;
-    background:${colors[Math.floor(Math.random()*colors.length)]};
-    animation-duration:${Math.random()*18+12}s;
-    animation-delay:${Math.random()*10}s;
+    left:${Math.random() * 100}%;
+    background:${colors[Math.floor(Math.random() * colors.length)]};
+    animation-duration:${Math.random() * 18 + 12}s;
+    animation-delay:${Math.random() * 10}s;
   `;
-  container.appendChild(p);
-}
-
-/* ── NAV SCROLL ── */
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-});
-
-/* ── REVEAL ON SCROLL ── */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add('visible'), i*80);
-      observer.unobserve(e.target);
+      container.appendChild(p);
     }
-  });
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* ── 3D CARD TILT ── */
-const card = document.getElementById('heroCard');
-const wrap = document.getElementById('heroCardWrap');
-if(wrap){
-  wrap.addEventListener('mousemove',e=>{
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left - r.width/2) / (r.width/2);
-    const y = (e.clientY - r.top - r.height/2) / (r.height/2);
-    card.style.transform=`rotateY(${x*10}deg) rotateX(${-y*8}deg)`;
-  });
-  wrap.addEventListener('mouseleave',()=>{
-    card.style.transform='rotateY(0deg) rotateX(0deg)';
-  });
-}
+    /* ── NAV SCROLL ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
 
-/* ── FORM SUBMIT ── */
-function submitForm(){
-  const name  = document.getElementById('fname').value.trim();
-  const phone = document.getElementById('fphone').value.trim();
-  const course= document.getElementById('fcourse').value;
-  const note  = document.getElementById('fnote').value.trim();
-  const errEl = document.getElementById('formError');
+    /* ── REVEAL ON SCROLL ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  if(!name){ showErr('Vui lòng nhập họ và tên.'); return; }
-  if(!phone){ showErr('Vui lòng nhập số điện thoại.'); return; }
+    /* ── 3D CARD TILT ── */
+    const card = document.getElementById('heroCard');
+    const wrap = document.getElementById('heroCardWrap');
+    if (wrap) {
+      wrap.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+        const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        card.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 8}deg)`;
+      });
+      wrap.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+    }
 
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Đang gửi...';
-  errEl.style.display='none';
+    /* ── FORM SUBMIT ── */
+    function submitForm() {
+      const name  = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('fphone').value.trim();
+      const email = document.getElementById('femail').value.trim();
+      const course= document.getElementById('fcourse').value;
+      const note  = document.getElementById('fnote').value.trim();
+      const errEl = document.getElementById('formError');
 
-  const params = {
-    name: name,
-    message: `
+      if(!name){ showErr('Vui lòng nhập họ và tên.'); return; }
+      if(!phone){ showErr('Vui lòng nhập số điện thoại.'); return; }
+      if(!email){ showErr('Vui lòng nhập địa chỉ email.'); return; }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Đang gửi...';
+      errEl.style.display = 'none';
+
+      const params = {
+        name: name,
+        email: email,
+        message: `
 - Số điện thoại: ${phone}
+- Email học viên: ${email}
 - Khóa học chọn: ${course || 'Cần tư vấn'}
 - Ghi chú: ${note || 'Không có'}
 - Thời gian: ${new Date().toLocaleString('vi-VN')}
     `
-  };
+      };
 
-  emailjs.send('service_zbk9mqe', 'template_5qk2cwk', params)
-    .then(()=>{
-      document.getElementById('formContent').style.display='none';
-      document.getElementById('formSuccess').style.display='block';
-    })
-    .catch(()=>{
-      /* fallback: still show success to user & log */
-      console.warn('EmailJS error — showing success anyway');
-      document.getElementById('formContent').style.display='none';
-      document.getElementById('formSuccess').style.display='block';
-    });
-}
+      emailjs.send('service_zbk9mqe', 'template_5qk2cwk', params)
+        .then(() => {
+          document.getElementById('formContent').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        })
+        .catch(() => {
+          /* fallback: still show success to user & log */
+          console.warn('EmailJS error — showing success anyway');
+          document.getElementById('formContent').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        });
+    }
 
-function showErr(msg){
-  const e=document.getElementById('formError');
-  e.textContent=msg; e.style.display='block';
-}
-</script>
+    function showErr(msg) {
+      const e = document.getElementById('formError');
+      e.textContent = msg; e.style.display = 'block';
+    }
+  </script>
 </body>
+
 </html>
