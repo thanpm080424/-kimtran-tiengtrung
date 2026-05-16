@@ -1168,13 +1168,9 @@
               <input type="text" id="fname" placeholder="Nguyễn Văn A" required>
             </div>
             <div class="form-group">
-            <label>Số điện thoại / Zalo *</label>
-            <input type="tel" id="fphone" placeholder="0901 234 567" required>
-          </div>
-          <div class="form-group">
-            <label>Địa chỉ Email (để nhận thư chào mừng) *</label>
-            <input type="email" id="femail" placeholder="example@gmail.com" required>
-          </div>
+              <label>Số điện thoại / Zalo *</label>
+              <input type="tel" id="fphone" placeholder="0901 234 567" required>
+            </div>
             <div class="form-group">
               <label>Bạn muốn học khóa nào?</label>
               <select id="fcourse">
@@ -1265,16 +1261,14 @@
 
     /* ── FORM SUBMIT ── */
     function submitForm() {
-      const name  = document.getElementById('fname').value.trim();
+      const name = document.getElementById('fname').value.trim();
       const phone = document.getElementById('fphone').value.trim();
-      const email = document.getElementById('femail').value.trim();
-      const course= document.getElementById('fcourse').value;
-      const note  = document.getElementById('fnote').value.trim();
+      const course = document.getElementById('fcourse').value;
+      const note = document.getElementById('fnote').value.trim();
       const errEl = document.getElementById('formError');
 
-      if(!name){ showErr('Vui lòng nhập họ và tên.'); return; }
-      if(!phone){ showErr('Vui lòng nhập số điện thoại.'); return; }
-      if(!email){ showErr('Vui lòng nhập địa chỉ email.'); return; }
+      if (!name) { showErr('Vui lòng nhập họ và tên.'); return; }
+      if (!phone) { showErr('Vui lòng nhập số điện thoại.'); return; }
 
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
@@ -1283,10 +1277,8 @@
 
       const params = {
         name: name,
-        email: email,
         message: `
 - Số điện thoại: ${phone}
-- Email học viên: ${email}
 - Khóa học chọn: ${course || 'Cần tư vấn'}
 - Ghi chú: ${note || 'Không có'}
 - Thời gian: ${new Date().toLocaleString('vi-VN')}
